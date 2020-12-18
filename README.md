@@ -11,7 +11,7 @@
 - Web automation is done using <b>python-selenium</b>.
 - To communicate with it i have created a simple Api using <b>Flask</b>.
 
-<h2>Prequesties</h2>
+<h2>Prerequisites</h2>
 
 - You need python installed on your computer.
 - You need to Install flask and selenium.
