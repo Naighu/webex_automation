@@ -32,7 +32,7 @@ In Windows type :<br>
 In Linux type :<br>
 <b> python3 main.py -name <your name> -email <email id></b>.
 <br><br>
-<img src="output1.png" placeholder="Sample output">
+<img src="output1.PNG" placeholder="Sample output">
 <h2> Upcoming updates </h2>
 
 * Planning to add automatic exit from meeting after a particular time .
