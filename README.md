@@ -28,11 +28,9 @@
 
 - Then open another terminal or cmd and type the following command :<br><br>
 In Windows type :<br>
-<<<<<<< HEAD
 <b>python main.py -url webex_url -name your_name_here -email your_email_id </b> <br><br>
 In Linux type :<br>
 <b> python3 main.py -url webex_url -name your_name_here -email your_email_id </b>.
-=======
 <b>python main.py -name your_name_here -email your_email_id </b> <br><br>
 In Linux type :<br>
 <b> python3 main.py -name <your name> -email <email id></b>.
