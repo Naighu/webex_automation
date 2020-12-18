@@ -28,11 +28,11 @@
 
 - Then open another terminal or cmd and type the following command :<br><br>
 In Windows type :<br>
-<b>python client.py -name your_name_here -email your_email_id </b> <br><br>
+<b>python main.py -url webex_url -name your_name_here -email your_email_id </b> <br><br>
 In Linux type :<br>
-<b> python3 client.py -name <your name> -email <email id></b>.
+<b> python3 main.py -url webex_url -name your_name_here -email your_email_id </b>.
 <br><br>
-<img src="output1.png" placeholder="Sample output">
+<img src="output1.PNG" placeholder="Sample output">
 <h2> Upcoming updates </h2>
 
 * Planning to add automatic exit from meeting after a particular time .

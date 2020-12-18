@@ -9,9 +9,9 @@ import requests
 
 
 class WebexAutomation:
-    def __init__(self):
+    def __init__(self,url):
         self.driver = webdriver.Chrome(r"chromedriver.exe")
-        self.url = "https://fisat.webex.com/meet/csecr2"
+        self.url = url
 
     def _connect(self):
         try:

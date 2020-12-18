@@ -26,13 +26,14 @@ parser = argparse.ArgumentParser(
 
 parser.add_argument('-name', help='Your Name to display in webex')
 parser.add_argument('-email', help='Your email to display in webex')
+parser.add_argument('-url', help='webex meeting url')
 
 args = parser.parse_args()
 client = Client()
 
 
 def automate(option):
-    start_new_thread(client.join, (args.name, args.email))
+    start_new_thread(client.join, (args.url, args.name, args.email))
     animation("Connecting to webex")
 
     while option != 2 and client.error == None:
@@ -75,7 +76,7 @@ def main():
 
     regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
     if(re.search(regex, args.email)):
-        automate(1)
+        automate(0)
     else:
         print("Please enter a valid email id ")
 

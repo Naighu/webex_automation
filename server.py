@@ -20,11 +20,12 @@ def join_meeting():
         args = request.get_json()
         name = args["name"]
         email = args["email"]
+        url = args["url"]
         header = request.headers
         auth_token = header["authentication"]
         if(auth(auth_token) and name != "" and str(email).find("@")):
             print("valid user ")
-            automation = WebexAutomation()
+            automation = WebexAutomation(url)
             length = len(running_automations)
             id = str(length + 1) + str(datetime.datetime.now())
             running_automations[id] = automation

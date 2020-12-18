@@ -12,9 +12,9 @@ class Client:
         self.loading = True
         self.error = None
 
-    def join(self, name, email):
+    def join(self,webexUrl, name, email):
         self.end_point = "/join"
-        body = {"name": name, "email": email}
+        body = {"name": name, "email": email,"url":webexUrl}
         try:
             response = requests.post(
                 self.url + self.end_point,
