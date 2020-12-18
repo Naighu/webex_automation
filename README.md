@@ -36,7 +36,6 @@ In Linux type :<br>
 <b>python main.py -name your_name_here -email your_email_id </b> <br><br>
 In Linux type :<br>
 <b> python3 main.py -name <your name> -email <email id></b>.
->>>>>>> 4c3617c1a3777c5fe1e07fc671835e5a32a339d6
 <br><br>
 <img src="output1.PNG" placeholder="Sample output">
 <h2> Upcoming updates </h2>
