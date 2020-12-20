@@ -11,7 +11,7 @@
 - Web automation is done using <b>python-selenium</b>.
 - To communicate with it i have created a simple Api using <b>Flask</b>.
 
-<h2>Prequesties</h2>
+<h2>Prerequisites</h2>
 
 - You need python installed on your computer.
 - You need to Install flask and selenium.
@@ -22,23 +22,27 @@
 
 - You can use it by cloning the repo ,first step is to start the server by running the following command in terminal/cmd<br><br>
   In Windows type :<br>
-  <b>python server.py</b><br><br>
+  `python server.py`
+  <br><br>
   In Linux type :<br>
-  <b> python3 server.py</b>.
+  `python3 server.py`
 
 - Then open another terminal or cmd and type the following command :<br><br>
-In Windows type :<br>
-<<<<<<< HEAD
-<b>python main.py -url webex_url -name your_name_here -email your_email_id </b> <br><br>
+  In Windows type :<br>
+
+```
+python main.py -url webex_url -name your_name_here -email your_email_id
+```
+
 In Linux type :<br>
-<b> python3 main.py -url webex_url -name your_name_here -email your_email_id </b>.
-=======
-<b>python main.py -name your_name_here -email your_email_id </b> <br><br>
-In Linux type :<br>
-<b> python3 main.py -name <your name> -email <email id></b>.
->>>>>>> 4c3617c1a3777c5fe1e07fc671835e5a32a339d6
+
+```
+python3 main.py -url webex_url -name your_name_here -email your_email_id
+```
+
 <br><br>
 <img src="output1.PNG" placeholder="Sample output">
+
 <h2> Upcoming updates </h2>
 
-* Planning to add automatic exit from meeting after a particular time .
+- Planning to add automatic exit from meeting after a particular time .

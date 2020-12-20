@@ -23,7 +23,7 @@ def join_meeting():
         url = args["url"]
         header = request.headers
         auth_token = header["authentication"]
-        if(auth(auth_token) and name != "" and str(email).find("@")):
+        if(auth(auth_token)):
             print("valid user ")
             automation = WebexAutomation(url)
             length = len(running_automations)
@@ -71,7 +71,7 @@ def message():
         automation = running_automations[id]
         response = automation.message(str(args["chat_message"]))
         if response["success"]:
-                return jsonify({"success": True, "message": "messaeg sent successfully"})
+            return jsonify({"success": True, "message": "messaeg sent successfully"})
         return jsonify(response)
     return jsonify({"success": False, "error": "Not valid"})
 

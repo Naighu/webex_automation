@@ -9,7 +9,7 @@ import requests
 
 
 class WebexAutomation:
-    def __init__(self,url):
+    def __init__(self, url):
         self.driver = webdriver.Chrome(r"chromedriver.exe")
         self.url = url
 
@@ -70,15 +70,7 @@ class WebexAutomation:
     def close_meeting(self):
         # close meeting
         print("closing the connection")
-        try:
-            close_button = "/html/body/div[1]/div/div[1]/div[3]/div[3]/div/button"
-            self.driver.find_element_by_xpath(close_button).click()
-        except Exception as e:
-            print(str(e))
-            close_button = "/html/body/div[3]/div[18]/div[2]/div[1]/div[6]/div/button"
-            self.driver.find_element_by_xpath(close_button).click()
-            close_button = "/html/body/div[3]/div[2]/div[11]/div/div[2]/div/button[2]"
-            self.driver.find_element_by_xpath(close_button).click()
+        self.driver.close()
 
     def message(self, msg):
         try:
@@ -93,10 +85,3 @@ class WebexAutomation:
         except Exception as e:
             print(str(e))
             return {"success": False, "error": str(e)}
-
-
-def main():
-    webex = WebexAutomation()
-    webex.joinMeeting("Naigal Roy", "naigalroy2812@gmail.com")
-    webex.close_meeting()
-    print("connection closed")
