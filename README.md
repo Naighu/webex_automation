@@ -28,7 +28,6 @@
   `python3 server.py`
 
 - Then open another terminal or cmd and type the following command :<br><br>
-<<<<<<< HEAD
   In Windows type :<br>
 
 ```
@@ -41,12 +40,21 @@ In Linux type :<br>
 python3 main.py -url webex_url -name your_name_here -email your_email_id
 ```
 
-=======
 In Windows type :<br>
-python main.py -url <b>webex_url</b> -name <b>your_name_here</b> -email <b>your_email_id</b> <br><br>
+
+```
+python main.py -url webex_url -name your_name_here -email your_email_id
+```
+
+<br><br>
 In Linux type :<br>
-python3 main.py -url <b>webex_url</b> -name <b>your_name_here</b> -email <b>your_email_id</b> <br><br>
->>>>>>> e4288aa29880341b60356125d0eee9fc7b178930
+
+```
+python3 main.py -url webex_url -name your_name_here -email your_email_id
+```
+
+<br><br>
+
 <br><br>
 <img src="output1.PNG" placeholder="Sample output">
 
