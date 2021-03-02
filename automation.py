@@ -24,9 +24,9 @@ class WebexAutomation:
             self._connect()
             # join in browser button
             WebDriverWait(self.driver, 8).until(EC.presence_of_element_located((
-                By.XPATH, "/html/body/div/div[3]/div/div[1]/div/div[2]/div[1]/div[2]/div[3]")))
+                By.XPATH, "/html/body/div[1]/div[3]/div/div[1]/div/div[2]/div[1]/div[2]/div[2]/div[3]/a")))
             self.driver.find_element_by_xpath(
-                "/html/body/div/div[3]/div/div[1]/div/div[2]/div[1]/div[2]/div[3]").click()
+                "/html/body/div[1]/div[3]/div/div[1]/div/div[2]/div[1]/div[2]/div[2]/div[3]/a").click()
             frame_xpath = "/html/body/div[2]/iframe"
 
             # switching i frame

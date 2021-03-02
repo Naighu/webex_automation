@@ -4,7 +4,6 @@ from flask import request
 from flask.json import jsonify
 from automation import WebexAutomation
 
-
 app = Flask(__name__)
 
 running_automations = {}
@@ -14,7 +13,7 @@ def auth(token):
     return token == "jhf85yb#fl43d"
 
 
-@app.route("/join", methods=["POST"])
+@app.route('/join', methods=['POST'])
 def join_meeting():
     try:
         args = request.get_json()
