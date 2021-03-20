@@ -48,24 +48,28 @@ class WebexAutomation:
             self.driver.find_element_by_xpath(
                 "/html/body/div[1]/div/div[2]/div[4]/button").click()
 
-            # got it button
-            got_it_button = "/html/body/div[4]/div[2]/div/div/div/div/div[1]/button"
-            WebDriverWait(self.driver, 15).until(EC.presence_of_element_located((
-                By.XPATH, got_it_button)))
-            self.driver.find_element_by_xpath(
-                got_it_button).click()
+            # # got it button
+            # got_it_button = "/html/body/div[4]/div[2]/div/div/div/div/div[1]/button"
+            # WebDriverWait(self.driver, 15).until(EC.presence_of_element_located((
+            #     By.XPATH, got_it_button)))
+            # self.driver.find_element_by_xpath(
+            #     got_it_button).click()
 
             # join meeting
+            join = "/html/body/div[1]/div/div[3]/div[2]/span/button"
+            WebDriverWait(self.driver, 15).until(EC.presence_of_element_located((
+                By.XPATH, join)))
             self.driver.find_element_by_xpath(
-                "/html/body/div[1]/div/div[3]/div[2]/span/button").click()
-            return {"success": True}
+                join).click()
+
+            return True,""
         except requests.exceptions.ConnectTimeout:
-            return {"success": False, "error": "Something went wrong check your internetConnection and tryagain"}
+            return False,"Something went wrong check your internetConnection and tryagain"
         except requests.exceptions.ConnectionError:
-            return {"success": False, "error": "Something went wrong check your internetConnection and tryagain"}
+            return  False,  "Something went wrong check your internetConnection and tryagain"
         except Exception as e:
             print(str(e))
-            return {"success": False, "error": "Something went wrong"}
+            return  False,"Something went wrong"
 
     def close_meeting(self):
         # close meeting
@@ -81,7 +85,7 @@ class WebexAutomation:
             text_area = "/html/body/div[3]/div[4]/div/div/div/div[8]/div/div/div[3]/textarea"
             text_area_box = self.driver.find_element_by_xpath(text_area)
             text_area_box.send_keys(msg, Keys.ENTER)
-            return {"success": True, "message": "message sent"}
+            return True, "message"
         except Exception as e:
             print(str(e))
-            return {"success": False, "error": str(e)}
+            return False, str(e)

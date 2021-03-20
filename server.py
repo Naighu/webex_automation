@@ -23,17 +23,17 @@ def join_meeting():
         header = request.headers
         auth_token = header["authentication"]
         if(auth(auth_token)):
-            print("valid user ")
+
             automation = WebexAutomation(url)
             length = len(running_automations)
             id = str(length + 1) + str(datetime.datetime.now())
             running_automations[id] = automation
             automation = running_automations[id]
-            response = automation.joinMeeting(name, email)
-            print(response)
-            if response["success"]:
+            result, error = automation.joinMeeting(name, email)
+            print(result, error)
+            if result:
                 return jsonify({"success": True, "message": "connected successfully", "id": id})
-            return jsonify(response)
+            return jsonify({"success": result, "error": error})
 
     except Exception as e:
         print(str(e))
@@ -66,12 +66,12 @@ def message():
     auth_token = request.headers["authentication"]
     id = str(args["id"])
     if(auth(auth_token) and running_automations.get(id) != None):
-        print("founded")
+
         automation = running_automations[id]
-        response = automation.message(str(args["chat_message"]))
-        if response["success"]:
+        result, error = automation.message(str(args["chat_message"]))
+        if result:
             return jsonify({"success": True, "message": "messaeg sent successfully"})
-        return jsonify(response)
+        return jsonify({"success": result, "error": error})
     return jsonify({"success": False, "error": "Not valid"})
 
 
