@@ -14,7 +14,7 @@
 <h2>Prerequisites</h2>
 
 - You need python installed on your computer.
-- You need to Install flask and selenium.
+- You need to Install flask , selenium and requests.
 - You need to install chromedriver (Note:Both the chrome browser and chrome driver should be at same version) .<br>
   If all set then we can automate webex
 

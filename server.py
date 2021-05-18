@@ -15,29 +15,29 @@ def auth(token):
 
 @app.route('/join', methods=['POST'])
 def join_meeting():
-    try:
-        args = request.get_json()
-        name = args["name"]
-        email = args["email"]
-        url = args["url"]
-        header = request.headers
-        auth_token = header["authentication"]
-        if(auth(auth_token)):
+ #   try:
+    args = request.get_json()
+    name = args["name"]
+    email = args["email"]
+    url = args["url"]
+    header = request.headers
+    auth_token = header["authentication"]
+    if(auth(auth_token)):
 
-            automation = WebexAutomation(url)
-            length = len(running_automations)
-            id = str(length + 1) + str(datetime.datetime.now())
-            running_automations[id] = automation
-            automation = running_automations[id]
-            result, error = automation.joinMeeting(name, email)
-            print(result, error)
-            if result:
-                return jsonify({"success": True, "message": "connected successfully", "id": id})
-            return jsonify({"success": result, "error": error})
+        automation = WebexAutomation(url)
+        length = len(running_automations)
+        id = str(length + 1) + str(datetime.datetime.now())
+        running_automations[id] = automation
+        automation = running_automations[id]
+        result, error = automation.joinMeeting(name, email)
+        print(result, error)
+        if result:
+            return jsonify({"success": True, "message": "connected successfully", "id": id})
+        return jsonify({"success": result, "error": error})
 
-    except Exception as e:
-        print(str(e))
-        return jsonify({"success": False, "error": str(e)})
+    # except Exception as e:
+    #     print(str(e))
+    #     return jsonify({"success": False, "error": str(e)})
 
 
 @app.route("/exit", methods=["POST"])
