@@ -25,58 +25,58 @@ class WebexAutomation:
             raise requests.exceptions.ConnectTimeout
 
     def joinMeeting(self, name, email):
-        # try:
-        self._connect()
-        # join in browser button
-        WebDriverWait(self.driver, 8).until(EC.presence_of_element_located((
-            By.XPATH, "/html/body/div[1]/div[3]/div/div[1]/div/div[2]/div[1]/div[2]/div[2]/div[3]/a")))
-        self.driver.find_element_by_xpath(
-            "/html/body/div[1]/div[3]/div/div[1]/div/div[2]/div[1]/div[2]/div[2]/div[3]/a").click()
-        frame_xpath = "/html/body/section/iframe"
+        try:
+            self._connect()
+            # join in browser button
+            WebDriverWait(self.driver, 8).until(EC.presence_of_element_located((
+                By.XPATH, "/html/body/div[1]/div[3]/div/div[1]/div/div[2]/div[1]/div[2]/div[2]/div[3]/a")))
+            self.driver.find_element_by_xpath(
+                "/html/body/div[1]/div[3]/div/div[1]/div/div[2]/div[1]/div[2]/div[2]/div[3]/a").click()
+            frame_xpath = "/html/body/section/iframe"
 
-        # switching i frame
-        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((
-            By.XPATH, frame_xpath)))
-        frame = self.driver.find_element_by_xpath(frame_xpath)
-        self.driver.switch_to.frame(frame)
-        time.sleep(2)
-        print("TextFeils")
-        # name text feild
-        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((
-            By.XPATH, "/html/body/div[1]/div/div[2]/div[2]/div/input")))
-        self.driver.find_element_by_xpath(
-            "/html/body/div[1]/div/div[2]/div[2]/div/input").send_keys(name)
+            # switching i frame
+            WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((
+                By.XPATH, frame_xpath)))
+            frame = self.driver.find_element_by_xpath(frame_xpath)
+            self.driver.switch_to.frame(frame)
+            time.sleep(2)
+            print("TextFeils")
+            # name text feild
+            WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((
+                By.XPATH, "/html/body/div[1]/div/div[2]/div[2]/div/input")))
+            self.driver.find_element_by_xpath(
+                "/html/body/div[1]/div/div[2]/div[2]/div/input").send_keys(name)
 
-        # email id textfeild
-        self.driver.find_element_by_xpath(
-            "/html/body/div[1]/div/div[2]/div[3]/div/input").send_keys(email)
+            # email id textfeild
+            self.driver.find_element_by_xpath(
+                "/html/body/div[1]/div/div[2]/div[3]/div/input").send_keys(email)
 
-        # next button
-        self.driver.find_element_by_xpath(
-            "/html/body/div[1]/div/div[2]/div[4]/button").click()
+            # next button
+            self.driver.find_element_by_xpath(
+                "/html/body/div[1]/div/div[2]/div[4]/button").click()
 
-        # # got it button
-        # got_it_button = "/html/body/div[4]/div[2]/div/div/div/div/div[1]/button"
-        # WebDriverWait(self.driver, 15).until(EC.presence_of_element_located((
-        #     By.XPATH, got_it_button)))
-        # self.driver.find_element_by_xpath(
-        #     got_it_button).click()
+            # # got it button
+            # got_it_button = "/html/body/div[4]/div[2]/div/div/div/div/div[1]/button"
+            # WebDriverWait(self.driver, 15).until(EC.presence_of_element_located((
+            #     By.XPATH, got_it_button)))
+            # self.driver.find_element_by_xpath(
+            #     got_it_button).click()
 
-        # join meeting
-        join = "/html/body/div[1]/div/div[3]/div[2]/span/button"
-        WebDriverWait(self.driver, 15).until(EC.presence_of_element_located((
-            By.XPATH, join)))
-        self.driver.find_element_by_xpath(
-            join).click()
+            # join meeting
+            join = "/html/body/div[1]/div/div[3]/div[2]/span/button"
+            WebDriverWait(self.driver, 15).until(EC.presence_of_element_located((
+                By.XPATH, join)))
+            self.driver.find_element_by_xpath(
+                join).click()
 
-        return True, ""
-        # except requests.exceptions.ConnectTimeout:
-        #     return False, "Something went wrong check your internetConnection and tryagain"
-        # except requests.exceptions.ConnectionError:
-        #     return False,  "Something went wrong check your internetConnection and tryagain"
-        # except Exception as e:
-        #     print(str(e))
-        #     return False, "Something went wrong"
+            return True, ""
+        except requests.exceptions.ConnectTimeout:
+            return False, "Something went wrong check your internetConnection and tryagain"
+        except requests.exceptions.ConnectionError:
+            return False,  "Something went wrong check your internetConnection and tryagain"
+        except Exception as e:
+            print(str(e))
+            return False, "Something went wrong"
 
     def close_meeting(self):
         # close meeting
